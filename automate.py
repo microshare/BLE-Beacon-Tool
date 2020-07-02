@@ -132,9 +132,8 @@ def clear_paired_devices():
                         if intelligent_match('Device ' + mac_address + ' not available', line):
                             logger.info('ERROR:Device is not in paired-devices')
 
-def open_bluetoothctl(mac_address):
+def open_bluetoothctl(mac_address, pair_code):
     sleep_time = 0.4
-    pair_code = 409132
     error_flag = False
     logger.info('open_bluetoothctl()')
     conn_output = pexpect_feedback('bluetoothctl', 'Agent registered.*')
@@ -186,7 +185,7 @@ def open_bluetoothctl(mac_address):
         conn_output = pexpect_session_feedback(conn_output[0], 'write 0x0004', '.*Print environment variables.*')
     
     if error_flag:
-        attempt_connection(mac_address)
+        attempt_connection(mac_address, pair_code)
 
 def connect_ble(address):
     sleep_time = 0.4
@@ -277,7 +276,7 @@ def manage_hci(reset, setup):
                 if len(line) > 0:
                     logger.info(line)
 
-def attempt_connection(mac_address):
+def attempt_connection(mac_address, pair_code):
     connected = False
     tries = 0
     sleep_time = 0.4
@@ -297,19 +296,18 @@ def attempt_connection(mac_address):
             break
 
     if connected:
-        open_bluetoothctl(mac_address)
+        open_bluetoothctl(mac_address, pair_code)
     else:
         logger.info('FAILED on:' + mac_address)
 
 
-def process_mac_addresses(mac_add_list):
-    for mac in mac_add_list:
-        mac_address = ':'.join(format(s, '02x') for s in bytes.fromhex(mac))
-        logger.info('\t' + mac_address.upper())
+def process_mac_addresses(mac_add_dict):
+    sleep_time = 0.4
+    for (mac_address, pair_code) in mac_add_dict.items():
+        logger.info(mac_address, '=', pair_code)
+        attempt_connection(mac_address, pair_code)
+        time.sleep(sleep_time)
     
-    mac_address = 'AC:23:3F:66:47:7E'
-    attempt_connection(mac_address)
-   
 def main():
     parser = argparse.ArgumentParser(description='Help display')
 
@@ -346,29 +344,26 @@ def main():
     logger.info('Starting BLE Tag mode parameter updates')
     logger.info('')
 
-    mac_add_list = []
+    mac_add_dict = {}
 
-    if args.list.find('.json') > 0:
-        logger.info('Parse file in JSON mode')
-        with open(args.list,'r') as json_file:
-            data = json.load(json_file)
-            for t in data:
-                mac_add_list.append( t['Barcode'] )
-    elif args.list.find('.txt') > 0:
+    if args.list.find('.txt') > 0:
         logger.info('Parse file in TXT mode')
         with open(args.list,'r') as txt_file:
             lines = txt_file.readlines()
             for l in lines:
-                mac_add_list.append( l.rstrip() )
+                mac_pair = l.rstrip().split(',')
+                mac_address = ':'.join(format(s, '02x') for s in bytes.fromhex(mac_pair[0]))
+                mac_add_dict[mac_address.upper()] = mac_pair[1]
+
     else:
         logger.info('Error: {} is not in supported list format file. Only JSON and TXT are supported.'.format(str(args.list)))
         exit(-1)
 
-    logger.info('Found {} MAC addresses in {}'.format(str(len(mac_add_list)),str(args.list)))
+    logger.info('Found {} MAC addresses in {}'.format(str(len(mac_add_dict)),str(args.list)))
 
-    process_mac_addresses(mac_add_list)
+    process_mac_addresses(mac_add_dict)
 
-    logger.info('BLE Tag pair report: total={}'.format(str(len(mac_add_list))))
+    logger.info('BLE Tag pair report: total={}'.format(str(len(mac_add_dict))))
     logger.info('Full process is finished.')
     exit(0)
 
