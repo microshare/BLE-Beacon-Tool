@@ -304,7 +304,7 @@ def attempt_connection(mac_address, pair_code):
 def process_mac_addresses(mac_add_dict):
     sleep_time = 0.4
     for (mac_address, pair_code) in mac_add_dict.items():
-        logger.info(mac_address, '=', pair_code)
+        logger.info(mac_address + '=' + str(pair_code))
         attempt_connection(mac_address, pair_code)
         time.sleep(sleep_time)
     
