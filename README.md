@@ -66,13 +66,13 @@ This takes approximately 1 hour to download and install dependencies.
 
    sudo sh BLE-Beacon-Tool/setup_environment.sh
 
-3. Configure bluetooth.service experimental mode
-   a. sudo nano /lib/systemd/system/bluetooth.service
-   b. Append --experimental
-      Before:
-      ExecStart=/usr/lib/bluetooth/bluetoothd
-      After:
-      ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
+3. Configure bluetooth.service experimental mode</br>
+   sudo nano /lib/systemd/system/bluetooth.service</br>
+   Append --experimental</br>
+   Before:</br>
+   ExecStart=/usr/lib/bluetooth/bluetoothd</br>
+   After:</br>
+   ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
 
 4. We will then need to create a MAC Address list of our BLE-Beacon's.
 
