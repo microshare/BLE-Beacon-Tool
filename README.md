@@ -59,11 +59,11 @@ This takes approximately 1 hour to download and install dependencies.
 
 1. Open the terminal, type and execute the command:
 
->> git clone  https://github.com/microshare/BLE-Beacon-Tool.git
+...git clone  https://github.com/microshare/BLE-Beacon-Tool.git
 
 2. On the terminal, type and execute the command:
 
->> sudo sh BLE-Beacon-Tool/setup_environment.sh
+...sudo sh BLE-Beacon-Tool/setup_environment.sh
 
 3. We will then need to create a MAC Address list of our BLE-Beacon's.
 
@@ -71,4 +71,4 @@ This takes approximately 1 hour to download and install dependencies.
 
 5. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run. Use command:
 
-python3.8 automate.py -l macList.txt
+...python3.8 automate.py -l macList.txt
