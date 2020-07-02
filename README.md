@@ -46,9 +46,9 @@ https://www.raspberrypi.org/downloads/
    update_config=1</br>
    ctrl_interface=/var/run/wpa_supplicant</br></br>
    network={</br>
-      scan_ssid=1</br>
-      ssid="YourRouterName"</br>
-      psk="YourRouterSecurityCode"</br>
+   scan_ssid=1</br>
+   ssid="YourRouterName"</br>
+   psk="YourRouterSecurityCode"</br>
    }
 
 ## Quick Start BLE-Beacon-Tool
