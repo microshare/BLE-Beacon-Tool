@@ -4,11 +4,11 @@
 Raspberry Pi3 Model B+
 https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/
 
-Debian Buster with Raspberry Pi Desktop
-Version: February 2020
-Release date: 2020-02-12
-Kernel version: 4.19
-Size: 2985 MB
+Debian Buster with Raspberry Pi Desktop</br>
+Version: February 2020</br>
+Release date: 2020-02-12</br>
+Kernel version: 4.19</br>
+Size: 2985 MB</br>
 SHA-256: e9931ba401241281f7c2d32b703227acabb054159792abdbd3f2d6ce09454e20
 
 https://downloads.raspberrypi.org/rpd_x86/images/rpd_x86-2020-02-14/
@@ -20,7 +20,7 @@ https://www.raspberrypi.org/downloads/
 
 ## Quick Start BLE-Beacon-Tool
 
-It is easy to setup the dependencies on the Raspberry Pi3 Model B+
+It is easy to setup the dependencies on the Raspberry Pi3 Model B+</br>
 This takes approximately 1 hour to download and install dependencies.
 
 1. Open the terminal, type and execute the command:
