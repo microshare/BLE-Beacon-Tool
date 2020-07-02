@@ -8,13 +8,8 @@
 ### hcitool
 
 * sudo hcitool lescan
-* sudo hcitool lecc AC:23:3F:66:47:7D
-
-### gatttool
-
-* sudo gatttool -t random -b AC:23:3F:66:47:7D --char-write-req -a 0x5001 -n 0x70110204 --listen
 * sudo hcitool lescan | grep KLK
-* sudo gatttool -t random -b AC:23:3F:66:47:7D -I
+* sudo hcitool lecc MA:C0:0A:DD:RE:SS
 
 ### bluetoothctl
 
@@ -25,14 +20,10 @@
 * scan off
 * info <MA:C0:0A:DD:RE:SS>
 
-### Configure bluetooth.service experimental mode
+### gatttool
 
-1. sudo nano /lib/systemd/system/bluetooth.service
-2. Append --experimental
-   Before:
-   ExecStart=/usr/lib/bluetooth/bluetoothd
-   After:
-   ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
+* sudo gatttool -t random -b MA:C0:0A:DD:RE:SS --char-write-req -a 0x5001 -n 0x70110204 --listen
+* sudo gatttool -t random -b MA:C0:0A:DD:RE:SS -I
 
 ### Terminal path to success
 * sudo hcitool lecc MA:C0:0A:DD:RE:SS
