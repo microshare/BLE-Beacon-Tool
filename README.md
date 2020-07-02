@@ -53,6 +53,8 @@ https://www.raspberrypi.org/downloads/
 
 ## Quick Start BLE-Beacon-Tool
 
+[_Useful Commands_](docs/useful_commands.md) for use with debugging hciconfig, hcitool, bluetoothctl
+
 It is easy to setup the dependencies on the Raspberry Pi3 Model B+</br>
 This takes approximately 1 hour to download and install dependencies.
 
