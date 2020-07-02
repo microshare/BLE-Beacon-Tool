@@ -69,4 +69,6 @@ This takes approximately 1 hour to download and install dependencies.
 
 4. Send the MAC Address list to your Microshare contact, the BLE-Beacon pairing codes will be generated.
 
-5. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run automate.py
+5. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run. Use command:
+
+python3.8 automate.py -l macList.txt
