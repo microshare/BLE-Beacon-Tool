@@ -66,10 +66,18 @@ This takes approximately 1 hour to download and install dependencies.
 
    sudo sh BLE-Beacon-Tool/setup_environment.sh
 
-3. We will then need to create a MAC Address list of our BLE-Beacon's.
+3. Configure bluetooth.service experimental mode
+   a. sudo nano /lib/systemd/system/bluetooth.service
+   b. Append --experimental
+      Before:
+      ExecStart=/usr/lib/bluetooth/bluetoothd
+      After:
+      ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
 
-4. Send the MAC Address list to your Microshare contact, the BLE-Beacon pairing codes will be generated.
+4. We will then need to create a MAC Address list of our BLE-Beacon's.
 
-5. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run. Use command:
+5. Send the MAC Address list to your Microshare contact, the BLE-Beacon pairing codes will be generated.
+
+6. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run. Use command:
 
    python3.8 automate.py -l macList.txt
