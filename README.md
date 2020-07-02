@@ -30,10 +30,10 @@ https://www.raspberrypi.org/downloads/
 2. Edit the file with your text editor e.g. vim or nano. 
 3. Once in the file, go to the last line and add the following content:
 
-eth0 
-static ip_address = 192.168.1.100 / 24 
-static routers = 192.168.1.1 
-static domain_name_servers = 192.168.1.1
+eth0</br>
+static ip_address = 192.168.1.100 / 24</br>
+static routers = 192.168.1.1</br>
+static domain_name_servers = 192.168.1.1</br>
 
 ### Connect the Raspberry Pi to your Wi-Fi router
 
@@ -42,14 +42,14 @@ static domain_name_servers = 192.168.1.1
 3. For the psk field , this corresponds to the security code of your box, so replace YourRouterSecurityCode by the key of your box
 4. The file must contains the following lines:
 
-country=fr
-update_config=1
-ctrl_interface=/var/run/wpa_supplicant
-
-network={
- scan_ssid=1
- ssid="YourRouterName"
- psk="YourRouterSecurityCode"
+country=fr</br>
+update_config=1</br>
+ctrl_interface=/var/run/wpa_supplicant</br>
+</br>
+network={</br>
+ scan_ssid=1</br>
+ ssid="YourRouterName"</br>
+ psk="YourRouterSecurityCode"</br>
 }
 
 ## Quick Start BLE-Beacon-Tool
