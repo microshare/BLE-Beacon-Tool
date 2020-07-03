@@ -20,11 +20,11 @@ https://www.raspberrypi.org/downloads/
 
 ### Headless Setup (Optional)
 
-### Enable SSH on Raspberry Pi Headless
+#### Enable SSH on Raspberry Pi Headless
 
 1. After the image succesfully imaged to the SD Card, open the SD Card in file explorer and simply create a file named ssh in the boot partition (the file does not expect any extension).
 
-### Set up a static ip for your Raspberry Pi Headless
+#### Set up a static ip for your Raspberry Pi Headless
 
 1. In order to know the ip that the Raspberry Pi will take, we will give it a static ip. For this we will modify the file dhcpd.conf located in the /etc/folder
 2. Edit the file with your text editor e.g. vim or nano. 
@@ -35,7 +35,7 @@ https://www.raspberrypi.org/downloads/
    static routers = 192.168.1.1</br>
    static domain_name_servers = 192.168.1.1</br>
 
-### Connect the Raspberry Pi to your Wi-Fi router
+#### Connect the Raspberry Pi to your Wi-Fi router
 
 1. In order to configure the Wi-Fi connection when starting the Pi, we will create the wpa_supplicant.conf file in the boot partition.
 2. In the ssid line , you will replace YourRouterName with the name of your box, for example , Livebox-5678. 
