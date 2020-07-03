@@ -80,4 +80,4 @@ This takes approximately 1 hour to download and install dependencies.
 
 6. Upon receipt of the MAC_Address_Pairing.txt from Microshare, we are then ready to run. Use command:
 
-   python3.8 automate.py -l macList.txt -o output.log
+   python3.8 automate.py -l macList.txt -o output.log -p 70110204
